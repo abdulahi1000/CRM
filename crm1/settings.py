@@ -25,7 +25,7 @@ SECRET_KEY = 'e9l@8!%u_mes+*em*)y0pg_w*$f#%xgob024x(h2h^6_k3ar=1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','customer-crm-mang.herokuapp.com']
 
 
 # Application definition
@@ -138,8 +138,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # AWS_STORAGE_BUCKET_NAME = 
 # AWS_QUERYSTRING_AUTH = Flase
 
-# if os.getcwd() == '/app':
-#     DEBUG = False
+if os.getcwd() == '/app':
+    DEBUG = False
 
 
 #SMTP Configuration
