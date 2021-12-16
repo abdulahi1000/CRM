@@ -1,0 +1,91 @@
+{% extends 'accounts/base.html' %}
+{% block content%}
+{% include 'accounts/status.html' %}
+<!-- <div class="container">
+<div class="row">
+    <div class="col-ml-5">
+        <h5>customers</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="">create customer</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>customer</th>
+                    <th>orders</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-ml-7">
+            <h5>last 5 orders</h5>
+            <hr>
+            <div class="card card-body">
+                <a class="btn btn-primary btn-sm btn-block" href="">create customer</a>
+                <table class="table table-sm">
+                    <tr>
+                        <th>product</th>
+                        <th>date ordered</th>
+                        <th>status</th>
+                        <th>update</th>
+                        <th>delete</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+</div>
+</div> -->
+
+
+        <div class="row">
+                <div class="col-lg-5">
+                        <h5>customers</h5>
+                    <hr>
+                    <div class="card card-body">
+                        <a class="btn btn-primary btn-sm btn-block" href="">create customer</a>
+                        <table class="table table-sm">
+                            <tr>
+                                <th></th>
+                                <th>customer</th>
+                                <th>phones</th> 
+                            </tr>
+                            {% for customer in customers %}
+                            <tr>
+                                <td ><a class="btn-sm btn-info" href="{% url 'customer' customer.id %}">view</a></td>
+                                <td>{{customer.name}}</td>
+                                <td>{{customer.phone}}</td>
+                            </tr>
+                            {%endfor%}
+                        </table>
+                    </div>
+                  </div>
+          <div class="col-lg-7">
+                <h5>last 5 orders</h5>
+                <hr>
+                <div class="card card-body">
+                    
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Product</th>
+                            <th>Date Ordered</th>
+                            <th>Status</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        {% for order in orders %}
+                        <tr>
+                            <td>{{order.Product}}</td>
+                            <td>{{order.date_created}}</td>
+                            <td>{{order.status}}</td>
+                            <td><a class="btn btn-primary btn-sm" href="{% url 'update_order' order.id %}">update</a></td>
+                            <td><a class="btn btn-danger btn-sm" href="{% url 'delete_order' order.id %}" >Delete</a></td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+                </div>
+          </div>
+        
+        </div>
+       
+     
+{% endblock%}

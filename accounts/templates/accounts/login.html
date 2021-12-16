@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootsrap.css' %}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+  
+  <div class="col-md-4 col-md-offset-4" id="login">
+    
+              <section id="inner-wrapper" class="login">
+                <h4  class="reg">LOGIN</h4>
+                <article>
+                  
+                  <form method="POST" action="">
+                      {% csrf_token %}
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                        <input type="text" class="form-control" name="username" placeholder="Name">
+                      </div>
+                    </div>
+                   
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                        <input type="password" class="form-control"  name="password" placeholder="Password">
+                      </div>
+                    </div>
+                    
+                      <input type="submit" class="btn btn-success btn-block" value="Login" id="">
+                      
+                  </form>
+                  <div>
+                      {% for message in messages %}
+                      <p>{{message}}</p>
+                      {% endfor %}
+                  <p class="forgot">Don't have an account? <a href="{% url 'register'%}" class="">Sign Up</a> <br>
+                    Forget Password? <a href="{% url 'reset_password'%}" class="">Reset password</a></p>
+                </div>
+                </article>
+                
+              </section>
+              
+            </div>
+            <script>
+                var form_fields = document.getElementsByTagName('input')
+                form_fields[1].placeholder= "username...";
+                form_fields[2].placeholder= "Password...";
+              </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootsrap.css' %}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+  
+  <div class="col-md-4 col-md-offset-4" id="login">
+    
+              <section id="inner-wrapper" class="login">
+                <h4  class="reg">REGISTER ACCOUNT</h4>
+                <article>
+                  
+                  <form method="POST" action="" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                        {{form.username}}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
+                        {{form.email}}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        {{form.password1}}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                          {{form.password2}}
+                      </div>
+                    </div>
+                      <input type="submit" class="btn btn-success btn-block" value="Register Account">
+                      
+                  </form>
+                  
+                  <div>
+                    {{form.errors}}
+                    <p class="forgot">Already have an account? <a href="{% url 'login' %}" class=>Login</a> </p>
+                  </div>
+                 
+                </article>
+                
+              </section>
+              
+            </div>
+<script>
+  var form_fields = document.getElementsByTagName('input')
+  form_fields[1].placeholder= "username...";
+  form_fields[2].placeholder= "email...";
+  form_fields[3].placeholder= "Enter password...";
+  form_fields[4].placeholder= "Re-enterpassword...";
+</script>
+
+    
+</body>
+
+</html>
