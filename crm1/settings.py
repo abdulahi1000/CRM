@@ -142,6 +142,12 @@ if os.getcwd() == '/app':
     DEBUG = False
 
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIAVDP52AIGXHVSNQ7C'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'prpshop-ecom-bucket'
+AWS_QUERYSTRING_AUTH = False
+
 #SMTP Configuration
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
