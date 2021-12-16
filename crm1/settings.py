@@ -138,8 +138,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # AWS_STORAGE_BUCKET_NAME = 
 # AWS_QUERYSTRING_AUTH = Flase
 
-if os.getcwd() == '/app':
-    DEBUG = False
+# if os.getcwd() == '/app':
+#     DEBUG = False
 
 
 #SMTP Configuration
